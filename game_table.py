@@ -4,7 +4,7 @@ import time
 
 class Game_table:
     def __init__(self):
-        self.player1 = Human("James")
+        self.player1 = Human()
         self.player2 = None
         pass
 
@@ -54,7 +54,7 @@ class Game_table:
             game_type = int(input("Please select a game mode:\n(1) Player vs. Player\n(2) Player vs AI\n"))
             
             if game_type == 1:
-                self.player2 = Human(self)
+                self.player2 = Human()
                 self.player1.set_name()
                 time.sleep(0.5)
                 print(f"Hello {self.player1.name}.")
@@ -67,7 +67,7 @@ class Game_table:
                 print(f"{self.player1.name} vs {self.player2.name}")
                 return
             elif game_type == 2:
-                self.player2 = Ai(self)
+                self.player2 = Ai()
                 self.player1.set_name()
                 time.sleep(0.5)
                 print(f"Hello {self.player1.name}.")
@@ -83,12 +83,12 @@ class Game_table:
             
 
     def round(self):
-            while self.player1.score < 2 and self.player2.score < 2:
+        while self.player1.score < 2 and self.player2.score < 2:
 
-                print("\nNew Round:\n")
+            print("\nNew Round:\n")
 
-                self.player1.pick_gesture()
-                self.player2.pick_gesture()
+            self.player1.pick_gesture()
+            self.player2.pick_gesture()
 
             if self.player1.pick_gesture == self.player2.pick_gesture:
                 print("Round is a tie.")
@@ -97,7 +97,7 @@ class Game_table:
                 print(f"{self.player1.name} wins the round.")
                 self.player1.score += 1
                 
-            elif self.player1.pick_gesture == self.player1.gestures[0] and self.player2.pick_gesture == self.player2.gestures[3]:
+            elif self.player1.pick_gesture == self.player1.gestures[2] and self.player2.pick_gesture == self.player2.gestures[1]:
                 print(f"{self.player1.name} wins the round.")
                 self.player1.score += 1
                 
@@ -105,11 +105,15 @@ class Game_table:
                 print(f"{self.player1.name} wins the round.")
                 self.player1.score += 1
                 
-            elif self.player1.pick_gesture == self.player1.gestures[1] and self.player2.pick_gesture == self.player2.gestures[4]:
+            elif self.player1.pick_gesture == self.player1.gestures[0] and self.player2.pick_gesture == self.player2.gestures[3]:
                 print(f"{self.player1.name} wins the round.")
                 self.player1.score += 1
                 
-            elif self.player1.pick_gesture == self.player1.gestures[2] and self.player2.pick_gesture == self.player2.gestures[1]:
+            elif self.player1.pick_gesture == self.player1.gestures[3] and self.player2.pick_gesture == self.player2.gestures[4]:
+                print(f"{self.player1.name} wins the round.")
+                self.player1.score += 1
+                
+            elif self.player1.pick_gesture == self.player1.gestures[4] and self.player2.pick_gesture == self.player2.gestures[2]:
                 print(f"{self.player1.name} wins the round.")
                 self.player1.score += 1
                 
@@ -121,15 +125,11 @@ class Game_table:
                 print(f"{self.player1.name} wins the round.")
                 self.player1.score += 1
                 
-            elif self.player1.pick_gesture == self.player1.gestures[3] and self.player2.pick_gesture == self.player2.gestures[4]:
+            elif self.player1.pick_gesture == self.player1.gestures[1] and self.player2.pick_gesture == self.player2.gestures[4]:
                 print(f"{self.player1.name} wins the round.")
                 self.player1.score += 1
                 
             elif self.player1.pick_gesture == self.player1.gestures[4] and self.player2.pick_gesture == self.player2.gestures[0]:
-                print(f"{self.player1.name} wins the round.")
-                self.player1.score += 1
-                
-            elif self.player1.pick_gesture == self.player1.gestures[4] and self.player2.pick_gesture == self.player2.gestures[2]:
                 print(f"{self.player1.name} wins the round.")
                 self.player1.score += 1
                 

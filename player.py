@@ -7,7 +7,7 @@ class Player:
         pass
 
     def set_name(self):
-        self.name = input("Enter player name?")
+        self.name = input("Enter player name? ")
         
     def pick_gesture(self):
         picked_gesture = input(f"Choose your gesture: {self.gestures[0]}, {self.gestures[1]}, {self.gestures[2]}, {self.gestures[3]}, or {self.gestures[4]} ")
